@@ -61,15 +61,13 @@ app.get("/checkout/:orderid",(req,res)=>{
     db.Order.findOne({
         _id:req.params.orderid
     }).populate("donuts").then(finalOrder=>{
-        // const total = finalOrder.donuts.reduce((runningTotal,currentDonut)=>{
-        //     return runningTotal + currentDonut.price 
-        // },0)
-        // const myObj = {
-        //     ...finalOrder
-        // }
-        // myObj.totalPrice = total
-        // console.log(myObj,total)
-        res.json(finalOrder)
+        const total = finalOrder.donuts.reduce((runningTotal,currentDonut)=>{
+            return runningTotal + currentDonut.price 
+        },0)
+      myObj = finalOrder.toObject()
+        myObj.totalPrice = total
+        console.log(myObj,total)
+        res.json(myObj)
     }).catch(err=>{
         res.status(500).json(err);
     })
