@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.12.8"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node index.js",
-    "seed":"node seed/seeds.js"
+    "start": "node index.js",
+    "seed": "node seed/seeds.js"
   },
   "repository": {
     "type": "git",
